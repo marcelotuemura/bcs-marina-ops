@@ -11,7 +11,7 @@ export default function LoginPage() {
     e.preventDefault()
     const supabase = createBrowserSupabaseClient()
     const { error } = await supabase.auth.signInWithOtp({ email,
-                                                         option: { 
+                                                         options: { 
                                                            emailRedirectTo:process.env.NEXT_PUBLIC_SITE_URL 
                                                              }
                                                            })
