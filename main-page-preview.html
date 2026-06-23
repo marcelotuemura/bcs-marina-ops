@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BCS Marina Ops Preview</title>
+  <style>
+    :root {
+      --bg:#f7f6f2; --surface:#f9f8f5; --ink:#28251d; --muted:#7a7974; --primary:#01696f; --teal:#4f98a3; --orange:#da7101; --green:#437a22; --red:#a13544; --card:#ffffffcc;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    .app{display:grid;grid-template-columns:280px 1fr;gap:20px;min-height:100vh;padding:20px;max-width:1440px;margin:0 auto}
+    .sidebar,.card{background:var(--surface);border:1px solid rgba(40,37,29,.1);border-radius:24px;box-shadow:0 12px 30px rgba(40,37,29,.08)}
+    .sidebar{padding:18px;position:sticky;top:20px;height:fit-content}
+    .brand{background:linear-gradient(135deg,var(--primary),var(--teal));color:white;border-radius:22px;padding:22px}
+    .brand small{letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+    .brand h1{font-size:28px;margin:10px 0 8px}
+    .nav a{display:flex;padding:14px 16px;border-radius:16px;color:var(--ink);text-decoration:none;font-weight:600;margin-top:8px}
+    .nav a.active,.nav a:hover{background:#cedcd8}
+    .hero{background:linear-gradient(120deg,var(--primary),var(--teal));color:#fff;padding:34px;border-radius:30px;box-shadow:0 20px 45px rgba(1,105,111,.22)}
+    .hero h2{font-size:46px;line-height:1.06;margin:10px 0 14px;max-width:760px}
+    .hero p{max-width:760px;color:rgba(255,255,255,.86);font-size:18px}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+    .card{padding:20px;background:var(--card);backdrop-filter:blur(8px)}
+    .kpi-title{font-size:14px;color:var(--muted)} .kpi-value{font-size:38px;font-weight:800;margin-top:10px}
+    .warn{color:var(--orange)} .good{color:var(--green)} .bad{color:var(--red)}
+    .split{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:20px}
+    .chart{height:280px;border-radius:18px;background:linear-gradient(180deg,#fff, #f1efea);display:flex;align-items:flex-end;gap:16px;padding:24px}
+    .barGroup{display:flex;align-items:flex-end;gap:8px;height:100%}.bar{width:28px;border-radius:10px 10px 0 0}.est{background:var(--primary)}.act{background:var(--orange)}
+    .legend{display:flex;gap:16px;font-size:13px;color:var(--muted);margin-top:12px}.dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:6px}
+    table{width:100%;border-collapse:collapse;font-size:14px}.thead{color:var(--muted);background:rgba(0,0,0,.04)} th,td{padding:14px;text-align:left;border-top:1px solid rgba(40,37,29,.08)}
+    .badge{display:inline-flex;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700}.teal{background:#cedcd8;color:var(--primary)}.gold{background:#e7d7c4;color:var(--orange)}
+    .rate{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:#fff;border:1px solid rgba(40,37,29,.08);border-radius:18px;padding:14px}
+    .invoice-preview{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .invoice{background:white;border-radius:24px;overflow:hidden;border:1px solid rgba(40,37,29,.1);box-shadow:0 12px 28px rgba(40,37,29,.08)}
+    .invoice-head{padding:20px 24px;background:linear-gradient(120deg,var(--primary),var(--teal));color:white}.invoice-body{padding:22px 24px}
+    .paybox{background:#f3f0ec;border-radius:18px;padding:14px;margin-top:16px}
+    @media (max-width: 1100px){.app{grid-template-columns:1fr}.grid4,.split,.invoice-preview{grid-template-columns:1fr}.sidebar{position:static}.hero h2{font-size:36px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <small>BCS</small>
+        <h1>Marina Ops</h1>
+        <div>Estimates, work orders, invoices, analytics, photos.</div>
+      </div>
+      <nav class="nav">
+        <a class="active" href="#">Dashboard</a>
+        <a href="#">Estimates</a>
+        <a href="#">Invoices</a>
+        <a href="#">Projects</a>
+        <a href="#">Analytics</a>
+        <a href="#">Users</a>
+      </nav>
+    </aside>
+    <main>
+      <section class="hero">
+        <div style="font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.76)">Best Coatings Solutions</div>
+        <h2>Marina workflow, estimating, invoicing, and repair performance in one colorful control panel</h2>
+        <p>Mobile-friendly app for vessel intake, partial approvals, technician tracking, project photos, invoice generation, and management variance analysis.</p>
+      </section>
+
+      <section class="grid4">
+        <div class="card"><div class="kpi-title">Active Projects</div><div class="kpi-value">18</div><div class="kpi-title">6 need attention</div></div>
+        <div class="card"><div class="kpi-title">Hours Variance</div><div class="kpi-value warn">+12.4%</div><div class="kpi-title">vs estimate this month</div></div>
+        <div class="card"><div class="kpi-title">Supplies Variance</div><div class="kpi-value warn">+7.1%</div><div class="kpi-title">materials above plan</div></div>
+        <div class="card"><div class="kpi-title">Deposit Collection</div><div class="kpi-value good">82%</div><div class="kpi-title">accepted jobs funded</div></div>
+      </section>
+
+      <section class="split">
+        <div class="card">
+          <h3 style="margin:0;font-size:20px">Estimated vs performed hours</h3>
+          <p style="color:var(--muted);font-size:14px">Project variance at a glance</p>
+          <div class="chart">
+            <div class="barGroup"><div class="bar est" style="height:52%"></div><div class="bar act" style="height:62%"></div></div>
+            <div class="barGroup"><div class="bar est" style="height:25%"></div><div class="bar act" style="height:22%"></div></div>
+            <div class="barGroup"><div class="bar est" style="height:40%"></div><div class="bar act" style="height:56%"></div></div>
+            <div class="barGroup"><div class="bar est" style="height:34%"></div><div class="bar act" style="height:38%"></div></div>
+          </div>
+          <div class="legend"><span><span class="dot" style="background:var(--primary)"></span>Estimated</span><span><span class="dot" style="background:var(--orange)"></span>Actual</span></div>
+        </div>
+        <div class="card">
+          <h3 style="margin:0;font-size:20px">Rate structure</h3>
+          <p style="color:var(--muted);font-size:14px">Built into estimates, time logs, and invoices</p>
+          <div class="rate" style="margin-top:16px">
+            <div class="tile"><strong>Internal Rate</strong><div style="margin-top:8px" class="badge teal">$48/hr</div><p style="font-size:13px;color:var(--muted)">Hidden from estimator-hours users.</p></div>
+            <div class="tile"><strong>Labor Rate</strong><div style="margin-top:8px" class="badge teal">$110/hr</div><p style="font-size:13px;color:var(--muted)">Primary repair and coatings billing.</p></div>
+            <div class="tile"><strong>Travel Rate</strong><div style="margin-top:8px" class="badge gold">$75/hr</div><p style="font-size:13px;color:var(--muted)">Transit and delivery movement.</p></div>
+            <div class="tile"><strong>Detail Rate</strong><div style="margin-top:8px" class="badge gold">$95/hr</div><p style="font-size:13px;color:var(--muted)">Final detail and finish work.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="invoice-preview">
+        <div class="card">
+          <h3 style="margin:0 0 10px;font-size:20px">Project performance</h3>
+          <table>
+            <thead class="thead"><tr><th>Project</th><th>Tech</th><th>Hours Var</th><th>Supply Var</th></tr></thead>
+            <tbody>
+              <tr><td>Sea Ray 310 Hull Recoat</td><td>Carlos M.</td><td class="warn">+7h</td><td class="bad">+$260</td></tr>
+              <tr><td>Regal Detail & Bottom Prep</td><td>Marcos T.</td><td class="good">-2h</td><td class="good">-$40</td></tr>
+              <tr><td>Mercury Transom Repair</td><td>Jorge L.</td><td class="warn">+8h</td><td class="bad">+$270</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="invoice">
+          <div class="invoice-head">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+              <div>
+                <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)">Invoice Preview</div>
+                <h3 style="margin:8px 0 0;font-size:28px">INV-2026-01024</h3>
+              </div>
+              <span class="badge" style="background:rgba(255,255,255,.18);color:#fff">Sent</span>
+            </div>
+          </div>
+          <div class="invoice-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px">
+              <div><strong>Client</strong><br/>John Peterson</div>
+              <div><strong>Vessel</strong><br/>Sea Ray 310</div>
+            </div>
+            <div class="paybox">
+              <strong>Estimate summary</strong>
+              <p style="margin:8px 0 0;color:var(--muted)">Marine coating materials summarized in one line, labor and fees grouped clearly, and accepted items only included.</p>
+            </div>
+            <div class="paybox">
+              <strong>Acceptance / deposit</strong>
+              <p style="margin:8px 0 0;color:var(--muted)">50% deposit required by Zelle through 305-747-8352 or by card through Stripe.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
