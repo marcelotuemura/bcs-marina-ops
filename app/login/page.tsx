@@ -12,8 +12,8 @@ export default function LoginPage() {
     const supabase = createBrowserSupabaseClient()
     const { error } = await supabase.auth.signInWithOtp({ email,
                                                          options: { 
-                                                           emailRedirectTo:process.env.NEXT_PUBLIC_SITE_URL 
-                                                             }
+                                                           emailRedirectTo: 'https://www.bestcoatingssolution.com/auth/confirm', 
+                                                             },
                                                            })
     setMessage(error ? error.message : 'Check your email for the login link.')
   }
