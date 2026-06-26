@@ -1,2 +1,0 @@
-import Link from 'next/link'
-export default function SuccessPage() { return <main className="login-page"><section className="login-panel"><div><p className="eyebrow">Payment complete</p><h1>Deposit received.</h1><p>Your Stripe test payment completed successfully.</p><br/><Link className="primary-button" href="/invoices">Back to invoices</Link></div></section><section className="login-visual" /></main> }
