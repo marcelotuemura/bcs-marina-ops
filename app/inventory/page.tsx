@@ -1,0 +1,3 @@
+import DashboardShell from '@/components/dashboard-shell'
+const items = [['Epoxy Resin','4 units','Low'],['Fuel Filter','3 units','Low'],['Zinc Anodes','16 units','Good'],['Buffing Compound','11 units','Good']]
+export default function InventoryPage() { return <DashboardShell eyebrow="Parts" title="Inventory" subtitle="Track parts, consumables, vendors, purchase orders, low-stock alerts, and job costing."><div className="table-card"><table className="table"><thead><tr><th>Item</th><th>Stock</th><th>Status</th></tr></thead><tbody>{items.map(i => <tr key={i[0]}><td>{i[0]}</td><td>{i[1]}</td><td><span className={i[2]==='Low'?'badge red':'badge green'}>{i[2]}</span></td></tr>)}</tbody></table></div></DashboardShell> }

@@ -1,0 +1,3 @@
+import DashboardShell from '@/components/dashboard-shell'
+const projects = ['Fiberglass repair program','Hardtop gelcoat correction','Annual engine service','Bottom paint package']
+export default function ProjectsPage() { return <DashboardShell eyebrow="Delivery" title="Projects" subtitle="Bundle work orders into larger service projects with milestones, budgets, photos, and approvals."><section className="page-grid">{projects.map((p,i) => <div className="card" key={p}><h2>{p}</h2><p>{i+2} active work orders • target margin {28+i*3}%</p><span className="badge green">On Track</span></div>)}</section></DashboardShell> }
