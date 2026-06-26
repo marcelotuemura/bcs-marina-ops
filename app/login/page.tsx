@@ -34,7 +34,7 @@ export default function LoginPage() {
         />
         <button className="btn" type="submit">Send magic link</button>
       </form>
-      <pre>{JSON.stringify(message, null, 2)}</pre>
+      <p>{message}</p>
     </main>
   )
 }
