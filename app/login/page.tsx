@@ -11,6 +11,12 @@ export default function LoginPage() {
     e.preventDefault()
     const supabase = createBrowserSupabaseClient()
     const { error } = await supabase.auth.signInWithOtp({ email })
+
+if (error) {
+  setMessage(error.message)
+} else {
+  setMessage('Check your email for the magic link.')
+}
     setMessage(error ? error.message : 'Check your email for the login link.')
   }
 
