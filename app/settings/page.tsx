@@ -1,0 +1,4 @@
+import Badge from '@/components/badge'
+import DashboardShell from '@/components/dashboard-shell'
+import SettingsForm from '@/components/settings-form'
+export default function SettingsPage(){return <DashboardShell eyebrow="SaaS Admin" title="Settings" subtitle="Company profile, locations, billing plan, integrations, security, branding, and data controls."><section className="page-grid two"><div className="card"><h2>Company</h2><SettingsForm /></div><div className="card"><h2>Enterprise modules</h2><div className="feature-list">{['Supabase Auth','Stripe Payments','Customer Portal','Role-Based Access','Multi-Location SaaS','AI Assistant Roadmap'].map((x)=><div className="feature-item" key={x}><strong>{x}</strong><Badge tone="green">Enabled</Badge></div>)}</div></div></section></DashboardShell>}

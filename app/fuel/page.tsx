@@ -1,0 +1,3 @@
+import DashboardShell from '@/components/dashboard-shell'
+import StatCard from '@/components/stat-card'
+export default function FuelPage(){return <DashboardShell eyebrow="Point of Sale" title="Fuel Sales" subtitle="Fuel tickets, pump activity, customer charges, tax reporting, and inventory reconciliation."><section className="metric-grid"><StatCard label="Today sales" value="$7,840" change="+9.2%" tone="good"/><StatCard label="Gallons" value="1,920" change="diesel + gas"/><StatCard label="Margin" value="18%" change="target 20%" tone="warn"/><StatCard label="Open tickets" value="6" change="needs closeout" tone="danger"/></section></DashboardShell>}
