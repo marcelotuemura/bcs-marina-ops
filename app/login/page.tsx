@@ -8,18 +8,16 @@ export default function LoginPage() {
   const [message, setMessage] = useState('')
 
   async function handleLogin(e: React.FormEvent) {
-    e.preventDefault()
-    const supabase = createBrowserSupabaseClient()
-    const { error } = await supabase.auth.signInWithOtp({ email })
+  e.preventDefault()
+  const supabase = createBrowserSupabaseClient()
+  const { error } = await supabase.auth.signInWithOtp({ email })
 
-    if (error) {
-      setMessage(error.message)
-    } else {
-      setMessage('Check your email for the magic link.')
-    }
+  if (error) {
+    setMessage(error.message)
+  } else {
+    setMessage('Check your email for the magic link.')
   }
-
-  return (
+}
     <main style={{ padding: 24 }}>
       <h1>Login TEST 123</h1>
       <form className="form" onSubmit={handleLogin}>
@@ -32,7 +30,7 @@ export default function LoginPage() {
         />
         <button className="btn" type="submit">Send magic link</button>
       </form>
-      {message && <p>{message}</p>}
+      <pre>{JSON.stringify(message, null, 2)}</pre>
     </main>
   )
 }
