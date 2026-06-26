@@ -1,0 +1,3 @@
+import DashboardShell from '@/components/dashboard-shell'
+const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+export default function SchedulePage() { return <DashboardShell eyebrow="Calendar" title="Scheduling" subtitle="Plan service appointments, haul-outs, launches, pickups, technician capacity, and customer visits."><div className="card"><div className="calendar-grid">{days.map((d,i) => <div className="day" key={d}><strong>{d}</strong>{i===1 && <div className="event">Engine service</div>}{i===3 && <div className="event">Detailing</div>}{i===5 && <div className="event">Oil change</div>}</div>)}</div></div></DashboardShell> }

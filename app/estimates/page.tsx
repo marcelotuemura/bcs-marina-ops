@@ -1,0 +1,4 @@
+import DashboardShell from '@/components/dashboard-shell'
+
+const rows = [['EST-2040','Sea Ray 310','Engine service + filters','Draft','$850'],['EST-2041','Azimut 42','Detailing + gelcoat correction','Sent','$2,300'],['EST-2042','Boston Whaler 23','Hull cleaning','Approved','$420']]
+export default function EstimatesPage() { return <DashboardShell eyebrow="Sales" title="Estimates" subtitle="Create premium estimates, capture approvals, convert to invoices, and track margin before work begins."><div className="table-card"><table className="table"><thead><tr><th>Estimate</th><th>Vessel</th><th>Scope</th><th>Status</th><th>Total</th></tr></thead><tbody>{rows.map(r => <tr key={r[0]}><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td><span className="badge amber">{r[3]}</span></td><td>{r[4]}</td></tr>)}</tbody></table></div></DashboardShell> }
