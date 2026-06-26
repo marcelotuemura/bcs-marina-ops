@@ -1,4 +1,0 @@
-import Badge from '@/components/badge'
-import DashboardShell from '@/components/dashboard-shell'
-import StatCard from '@/components/stat-card'
-export default function SlipsPage(){return <DashboardShell eyebrow="Storage Revenue" title="Slips & Storage" subtitle="Track occupancy, reservations, contracts, renewals, waitlists, and storage revenue."><section className="metric-grid"><StatCard label="Occupancy" value="92%" change="184/200 slips" tone="good"/><StatCard label="Waitlist" value="27" change="high demand" tone="warn"/><StatCard label="Monthly storage" value="$84,500" change="+6.1%" tone="good"/><StatCard label="Expiring contracts" value="12" change="30 days" tone="danger"/></section><div className="card"><h2>Dock map readiness</h2><p>Next phase: interactive slip map, dimensions, power/water service, contract documents, and automated renewal billing.</p><Badge tone="green">SaaS roadmap ready</Badge></div></DashboardShell>}
